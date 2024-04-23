@@ -5,10 +5,42 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to My Calculator App</h1>
     
-    <!-- Your calculator code goes here -->
-    
+    <!-- buttons for digits and operations -->
+    <div class="calculator">
+        <div class="display">
+            <input type="text" class="display-screen" value="0" disabled>
+        </div>
+        <div class="buttons">
+            <button id='option' class="button" >Clear</button>
+            <button id="option" class="button" >Backspace</button>
+        </div>
+        <div class="buttons">
+            <button id="digit" class="button" >7</button>
+            <button id="digit" class="button" >8</button>
+            <button id="digit" class="button" >9</button>
+            <button id="operation" class="button" >÷</button>
+        </div>
+        <div class="buttons">
+            <button id="digit" class="button" >4</button>
+            <button id="digit" class="button" >5</button>
+            <button id="digit" class="button" >6</button>
+            <button id="operation" class="button" >x</button>
+        </div>
+        <div class="buttons">
+            <button id="digit" class="button" >1</button>
+            <button id="digit" class="button" >2</button>
+            <button id="digit" class="button" >3</button>
+            <button id="operation" class="button" >-</button>
+        </div>
+        <div class="buttons">
+            <button id="digit" class="button" >0</button>
+            <button id="digit" class="button" >.</button>
+            <button id="operation" class="button" >=</button>
+            <button id="operation" class="button" >+</button>
+        </div>
+    </div>
+            
     <script src="script.js"></script>
 </body>
 </html>
