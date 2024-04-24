@@ -86,20 +86,20 @@ body {
 }
 
 .operation {
-    background-color: #f9a825;
+    background-color: #fd9d03;
     color: white;
 }
 
 .operation:hover {
-    background-color: #f9bc26;
+    background-color: #fbb70a;
 }
 
 .operation-active {
-    background-color: #f9cf27;
+    background-color: #fbd577;
 }
 
 .equals {
-    background-color: #f44336;
+    background-color: #de4034;
     color: white;
 }
 

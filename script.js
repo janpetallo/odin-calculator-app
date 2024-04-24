@@ -90,10 +90,6 @@ function updateDisplay(e) {
             }
         }
 
-        console.log('displayValue: ' + displayValue)
-        console.log('firstNumber: ' + firstNumber);
-        console.log('secondNumber: ' + secondNumber);
-        console.log('operator: ' + operator);
         
     } else if (e.target.classList.contains('operation')) {
         if (firstNumber === '' || secondNumber === '') {  
@@ -118,9 +114,6 @@ function updateDisplay(e) {
             displayValue = String(firstNumber);
             secondNumber = ''; 
         }
-        console.log('firstNumber: ' + firstNumber);
-        console.log('secondNumber: ' + secondNumber);
-        console.log('operator: ' + operator);
     } else if (e.target.classList.contains('clear')) {
         firstNumber = '';
         secondNumber = '';
@@ -132,11 +125,6 @@ function updateDisplay(e) {
             btn.classList.remove('operation-active');
         });
 
-        console.log('displayValue: ' + displayValue)
-
-        console.log('firstNumber: ' + firstNumber);
-        console.log('secondNumber: ' + secondNumber);
-        console.log('operator: ' + operator);
     } else if (e.target.classList.contains('equals')) {
 
         if (firstNumber !== '' && secondNumber === '' && operator === '') {
@@ -165,20 +153,12 @@ function updateDisplay(e) {
         operationButtons.forEach(function(btn) {
             btn.classList.remove('operation-active');
         });
-        console.log('displayValue: ' + displayValue)
-
-        console.log('firstNumber: ' + firstNumber);
-        console.log('secondNumber: ' + secondNumber);
-        console.log('operator: ' + operator);
     } else if (e.target.classList.contains('del')) {
         if (displayValue.length === 1) {
             displayValue = '0';
         } else {
             displayValue = displayValue.slice(0, -1);
         }
-        console.log('firstNumber: ' + firstNumber);
-        console.log('secondNumber: ' + secondNumber);
-        console.log('operator: ' + operator);
     } else if (e.target.classList.contains('negate')) {
         if (displayValue[0] === '-') {
             displayValue = displayValue.slice(1);
@@ -187,11 +167,6 @@ function updateDisplay(e) {
         } else {
             displayValue = '-' + displayValue;
         }
-        console.log('displayValue: ' + displayValue)
-
-        console.log('firstNumber: ' + firstNumber);
-        console.log('secondNumber: ' + secondNumber);
-        console.log('operator: ' + operator);
     }
     document.querySelector('.display-screen').value = displayValue;
 }
