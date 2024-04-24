@@ -63,6 +63,11 @@ function updateDisplay(e) {
                 displayValue += btnValue;
             }
         }
+
+        console.log('displayValue: ' + displayValue)
+        console.log('firstNumber: ' + firstNumber);
+        console.log('secondNumber: ' + secondNumber);
+        console.log('operator: ' + operator);
         
     } else if (e.target.classList.contains('operation')) {
         if (firstNumber === '' || secondNumber === '') {  
@@ -75,16 +80,32 @@ function updateDisplay(e) {
                 operator = btnValue; 
             }
         } else if (secondNumber !== '') { 
+            console.log('operate ' + firstNumber + operator + secondNumber)
             firstNumber = operate(operator, firstNumber, secondNumber);
-            operator = btnValue;
+            if (btnValue === 'x') {
+                operator = '*';
+            } else if (btnValue === '÷') {
+                operator = '/';
+            } else {
+                operator = btnValue; 
+            }
             displayValue = String(firstNumber);
             secondNumber = ''; 
         }
+        console.log('firstNumber: ' + firstNumber);
+        console.log('secondNumber: ' + secondNumber);
+        console.log('operator: ' + operator);
     } else if (e.target.classList.contains('clear')) {
         firstNumber = '';
         secondNumber = '';
         operator = '';
         displayValue = '0';
+
+        console.log('displayValue: ' + displayValue)
+
+        console.log('firstNumber: ' + firstNumber);
+        console.log('secondNumber: ' + secondNumber);
+        console.log('operator: ' + operator);
     } else if (e.target.classList.contains('equals')) {
 
         if (firstNumber !== '' && secondNumber === '' && operator === '') {
@@ -93,6 +114,8 @@ function updateDisplay(e) {
             displayValue = 'Error';
         } 
         else if (firstNumber !== '' && secondNumber !== '') {
+            console.log('operate ' + firstNumber + operator + secondNumber)
+
             firstNumber = operate(operator, firstNumber, secondNumber);
             if (firstNumber === 'i still love you') {
                 displayValue = 'i still love uu <3';
@@ -102,12 +125,20 @@ function updateDisplay(e) {
             secondNumber = '';
             operator = '';
         } 
+        console.log('displayValue: ' + displayValue)
+
+        console.log('firstNumber: ' + firstNumber);
+        console.log('secondNumber: ' + secondNumber);
+        console.log('operator: ' + operator);
     } else if (e.target.classList.contains('del')) {
         if (displayValue.length === 1) {
             displayValue = '0';
         } else {
             displayValue = displayValue.slice(0, -1);
         }
+        console.log('firstNumber: ' + firstNumber);
+        console.log('secondNumber: ' + secondNumber);
+        console.log('operator: ' + operator);
     } else if (e.target.classList.contains('negate')) {
         if (displayValue[0] === '-') {
             displayValue = displayValue.slice(1);
@@ -116,6 +147,11 @@ function updateDisplay(e) {
         } else {
             displayValue = '-' + displayValue;
         }
+        console.log('displayValue: ' + displayValue)
+
+        console.log('firstNumber: ' + firstNumber);
+        console.log('secondNumber: ' + secondNumber);
+        console.log('operator: ' + operator);
     }
     document.querySelector('.display-screen').value = displayValue;
 }
