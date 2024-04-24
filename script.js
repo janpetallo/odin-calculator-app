@@ -33,5 +33,21 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 
+let displayValue = '0'; // initialize display value
 
+// function to update display
+function updateDisplay(e) {
+    const btnValue = e.target.innerText;
+    if (e.target.id === 'digit') {
+        if (displayValue === '0') {
+            displayValue = btnValue;
+        } else {
+            displayValue += btnValue;
+        }
+    }
+    document.querySelector('.display-screen').value = displayValue;
+}
+
+// event listener for button clicks
+document.querySelector('.calculator').addEventListener('click', updateDisplay);
 
