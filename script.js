@@ -54,7 +54,7 @@ function updateDisplay(e) {
             } else if (operator !== '' && secondNumber !== '') { // if operator is selected and second number is not empty
                 displayValue += btnValue;
                 secondNumber = Number(displayValue);
-            } else if (displayValue === '0') { // if display value is 0
+            } else if (displayValue === '0' ) { // if display value is 0
                 displayValue = btnValue;
             } else { // if display value is not 0
                 displayValue += btnValue;
@@ -83,6 +83,7 @@ function updateDisplay(e) {
         operator = '';
         displayValue = '0';
     } else if (e.target.classList.contains('equals')) {
+
         if (firstNumber !== '' && secondNumber === '' && operator === '') {
             displayValue = String(firstNumber);
         } else if (firstNumber !== '' && secondNumber === '' && operator !== '') {
@@ -115,6 +116,42 @@ function updateDisplay(e) {
     }
     document.querySelector('.display-screen').value = displayValue;
 }
+
+window.addEventListener('keydown', function(e) {
+    const key = e.key;
+    const digitButtons = Array.from(document.querySelectorAll('.digit'));
+    const operationButtons = Array.from(document.querySelectorAll('.operation'));
+    const clearButton = document.querySelector('.clear');
+    const equalsButton = document.querySelector('.equals');
+    const delButton = document.querySelector('.del');
+    const negateButton = document.querySelector('.negate');
+
+    if (key >= 0 && key <= 9 || key === '.') { // If the key is a digit or a decimal point
+        const button = digitButtons.find(btn => btn.innerText === key);
+        if (button) {
+            button.click();
+        }
+    } else if (key === '+' || key === '-' || key === '*' || key === '/') { // If the key is an operator
+        if (key === '*') {
+            operationButtons[1].click(); // Click the multiply button
+        }
+        if (key === '/') {
+            operationButtons[0].click(); // Click the divide button
+        }
+        const button = operationButtons.find(btn => btn.innerText === key);
+        if (button) {
+            button.click();
+        }
+    } else if (key === 'Enter') { // If the key is Enter (to calculate the result)
+        equalsButton.click();
+    } else if (key === 'Backspace' || 'Delete') { // If the key is Backspace (to clear the input)
+        delButton.click();
+    } else if (key === 'Escape') { // If the key is Escape (to clear everything)
+        clearButton.click();
+    } else if (key === 'n') { // If the key is 'n' (to negate the number)
+        negateButton.click();
+    }
+});
 
 // event listener for button clicks
 document.querySelector('.calculator').addEventListener('click', updateDisplay);
