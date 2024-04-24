@@ -66,6 +66,23 @@ function updateDisplay(e) {
             displayValue = String(firstNumber);
             secondNumber = ''; 
         }
+    } else if (e.target.classList.contains('clear')) {
+        firstNumber = '';
+        secondNumber = '';
+        operator = '';
+        displayValue = '0';
+    } else if (e.target.classList.contains('equals')) {
+        if (firstNumber !== '' && secondNumber === '' && operator === '') {
+            displayValue = String(firstNumber);
+        } else if (firstNumber !== '' && secondNumber === '' && operator !== '') {
+            displayValue = 'Error';
+        } else if (firstNumber !== '' && secondNumber !== '') {
+            firstNumber = operate(operator, firstNumber, secondNumber);
+            displayValue = String(firstNumber);
+            secondNumber = '';
+            operator = '';
+        } 
+
     }
     document.querySelector('.display-screen').value = displayValue;
 }
