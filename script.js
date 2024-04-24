@@ -39,6 +39,22 @@ let operator = '';
 let displayValue = '0'; // initialize display value
 const maxLength = 10; // maximum length of display value
 
+// Get all operation buttons
+var operationButtons = document.querySelectorAll('.operation');
+
+// Add event listener to each operation button
+operationButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        // Remove the active class from all operation buttons
+        operationButtons.forEach(function(btn) {
+            btn.classList.remove('operation-active');
+        });
+
+        // Add the active class to the clicked button
+        this.classList.add('operation-active');
+    });
+});
+
 // function to update display
 function updateDisplay(e) {
     const btnValue = e.target.innerText;
@@ -111,6 +127,11 @@ function updateDisplay(e) {
         operator = '';
         displayValue = '0';
 
+        // Remove the active class from all operation buttons
+        operationButtons.forEach(function(btn) {
+            btn.classList.remove('operation-active');
+        });
+
         console.log('displayValue: ' + displayValue)
 
         console.log('firstNumber: ' + firstNumber);
@@ -139,6 +160,11 @@ function updateDisplay(e) {
             secondNumber = '';
             operator = '';
         } 
+
+        // Remove the active class from all operation buttons
+        operationButtons.forEach(function(btn) {
+            btn.classList.remove('operation-active');
+        });
         console.log('displayValue: ' + displayValue)
 
         console.log('firstNumber: ' + firstNumber);
@@ -209,5 +235,4 @@ window.addEventListener('keydown', function(e) {
 
 // event listener for button clicks
 document.querySelector('.calculator').addEventListener('click', updateDisplay);
-
 
