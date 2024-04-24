@@ -54,6 +54,9 @@ function updateDisplay(e) {
             } else if (operator !== '' && secondNumber !== '') { // if operator is selected and second number is not empty
                 displayValue += btnValue;
                 secondNumber = Number(displayValue);
+            } else if (firstNumber !== '' && secondNumber === '' && operator === '') { // when the last operation is equals
+                displayValue = btnValue;
+                firstNumber = '';
             } else if (displayValue === '0' ) { // if display value is 0
                 displayValue = btnValue;
             } else { // if display value is not 0
