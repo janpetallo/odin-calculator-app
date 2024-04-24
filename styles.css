@@ -58,8 +58,6 @@ body {
     font-size: 1.2em;
     cursor: pointer;
     width: 100%;
-
-    
 }
 
 /* .buttons {
@@ -109,4 +107,107 @@ body {
 
 .equals:active {
     background-color: #f66758;
+}
+
+@media screen and (max-width: 560px){
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(125, 122, 122);
+        margin: 0;
+        font-family: Arial, sans-serif;
+        overflow: auto;
+    }
+
+    .calculator {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgb(125, 122, 122);
+        /* padding: 20px; */
+        width: 100%;
+        height: auto;
+        box-shadow: 0 0 5px rgb(0, 0, 0);
+    }
+    
+    .display {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        padding: 10px;
+        border: 5px solid #a4a2a2;
+        border-radius: 5px;
+        background-color: #dddada;
+        
+    }
+    
+    .display-screen {
+        width: 100%;
+        border: none;
+        background: none;
+        text-align: right;
+        font-size: 5em;
+        font-family: 'Courier New', monospace;
+        overflow: visible;
+        white-space: nowrap;
+    }
+    
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .button {
+        padding: 40px 20px;
+        
+        border: none;
+        border-radius: 5px;
+        background-color: #dddada;
+        font-size: 2em;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .button:hover {
+        background-color: #cbc5c5;
+    }
+    
+    .button:active {
+        background-color: #d0d0d0;
+    }
+    
+    .operation {
+        background-color: #fd9d03;
+        color: white;
+    }
+    
+    .operation:hover {
+        background-color: #fbb70a;
+    }
+    
+    .operation-active {
+        background-color: #fbd577;
+    }
+    
+    .equals {
+        background-color: #de4034;
+        color: white;
+    }
+    
+    .equals:hover {
+        background-color: #f55547;
+    }
+    
+    .equals:active {
+        background-color: #f66758;
+    }
+    
 }
