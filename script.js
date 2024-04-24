@@ -166,6 +166,9 @@ function updateDisplay(e) {
             displayValue = '0';
         } else {
             displayValue = '-' + displayValue;
+            if(secondNumber !== '') {
+                secondNumber = Number(displayValue);
+            }
         }
     }
     document.querySelector('.display-screen').value = displayValue;
