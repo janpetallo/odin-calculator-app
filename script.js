@@ -42,17 +42,25 @@ let displayValue = '0'; // initialize display value
 function updateDisplay(e) {
     const btnValue = e.target.innerText;
     if (e.target.classList.contains('digit')) { 
-        if (operator !== '' && secondNumber === '') { // if operator is selected and second number is empty
-            displayValue = btnValue;
-            secondNumber = Number(displayValue);
-        } else if (operator !== '' && secondNumber !== '') { // if operator is selected and second number is not empty
-            displayValue += btnValue;
-            secondNumber = Number(displayValue);
-        } else if (displayValue === '0') { // if display value is 0
-            displayValue = btnValue;
-        } else { // if display value is not 0
-            displayValue += btnValue;
+        if (btnValue === '.') { 
+            // if display value already has a decimal, do nothing
+            if (!displayValue.includes('.')) { 
+                displayValue += '.'; 
+            }
+        } else {
+            if (operator !== '' && secondNumber === '') { // if operator is selected and second number is empty
+                displayValue = btnValue;
+                secondNumber = Number(displayValue);
+            } else if (operator !== '' && secondNumber !== '') { // if operator is selected and second number is not empty
+                displayValue += btnValue;
+                secondNumber = Number(displayValue);
+            } else if (displayValue === '0') { // if display value is 0
+                displayValue = btnValue;
+            } else { // if display value is not 0
+                displayValue += btnValue;
+            }
         }
+        
     } else if (e.target.classList.contains('operation')) {
         if (firstNumber === '' || secondNumber === '') {  
             firstNumber = Number(displayValue);
@@ -90,7 +98,12 @@ function updateDisplay(e) {
             secondNumber = '';
             operator = '';
         } 
-
+    } else if (e.target.classList.contains('del')) {
+        if (displayValue.length === 1) {
+            displayValue = '0';
+        } else {
+            displayValue = displayValue.slice(0, -1);
+        }
     }
     document.querySelector('.display-screen').value = displayValue;
 }
