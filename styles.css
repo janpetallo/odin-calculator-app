@@ -11,8 +11,10 @@ body {
 .calculator {
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: rgb(125, 122, 122);
     padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
 }
 
 .display {
@@ -20,9 +22,10 @@ body {
     justify-content: flex-end;
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 5px solid #a4a2a2;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #dddada;
+    
 }
 
 .display-screen {
@@ -32,25 +35,50 @@ body {
     text-align: right;
     font-size: 2em;
     font-family: 'Courier New', monospace;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 5px;
+    margin: 2px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dddada;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 100%;
+
+    
+}
+
+/* .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
 }
 
 .button {
-    padding: 20px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #f0f0f0;
-    font-size: 1.2em;
-    transition: background-color 0.3s;
-}
+    background-color: #e0e0e0;
+    font-size: 1.5em;
+    cursor: pointer;
+} */
 
 .button:hover {
-    background-color: #e0e0e0;
+    background-color: #cbc5c5;
 }
 
 .button:active {
@@ -66,7 +94,7 @@ body {
     background-color: #f9bc26;
 }
 
-.operation:active {
+.operation-active {
     background-color: #f9cf27;
 }
 

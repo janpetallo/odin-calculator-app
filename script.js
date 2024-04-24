@@ -37,6 +37,7 @@ let secondNumber = '';
 let operator = '';
 
 let displayValue = '0'; // initialize display value
+const maxLength = 10; // maximum length of display value
 
 // function to update display
 function updateDisplay(e) {
@@ -57,7 +58,7 @@ function updateDisplay(e) {
             if (operator !== '' && secondNumber === '') { // if operator is selected and second number is empty
                 displayValue = btnValue;
                 secondNumber = Number(displayValue);
-            } else if (operator !== '' && secondNumber !== '') { // if operator is selected and second number is not empty
+            } else if (operator !== '' && secondNumber !== '' && displayValue.length < maxLength) { // if operator is selected and second number is not empty
                 displayValue += btnValue;
                 secondNumber = Number(displayValue);
             } else if (firstNumber !== '' && secondNumber === '' && operator === '' && !displayValue.includes('.')) { // when the last operation is equals
@@ -66,7 +67,10 @@ function updateDisplay(e) {
             } else if (displayValue === '0' ) { // if display value is 0
                 displayValue = btnValue;
             } else { // if display value is not 0
-                displayValue += btnValue;
+                if (displayValue.length < maxLength) {
+                    displayValue += btnValue;
+                }
+                
             }
         }
 
@@ -128,7 +132,7 @@ function updateDisplay(e) {
 
             firstNumber = operate(operator, firstNumber, secondNumber);
             if (firstNumber === 'i still love you') {
-                displayValue = 'i still love uu <3';
+                displayValue = 'ily <3';
             } else {
                 displayValue = String(firstNumber);
             }
@@ -205,4 +209,5 @@ window.addEventListener('keydown', function(e) {
 
 // event listener for button clicks
 document.querySelector('.calculator').addEventListener('click', updateDisplay);
+
 
