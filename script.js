@@ -134,14 +134,15 @@ window.addEventListener('keydown', function(e) {
     } else if (key === '+' || key === '-' || key === '*' || key === '/') { // If the key is an operator
         if (key === '*') {
             operationButtons[1].click(); // Click the multiply button
-        }
-        if (key === '/') {
+        } else if (key === '/') {
             operationButtons[0].click(); // Click the divide button
+        } else {
+            const button = operationButtons.find(btn => btn.innerText === key);
+            if (button) {
+                button.click();
+            }
         }
-        const button = operationButtons.find(btn => btn.innerText === key);
-        if (button) {
-            button.click();
-        }
+        
     } else if (key === 'Enter') { // If the key is Enter (to calculate the result)
         equalsButton.click();
     } else if (key === 'Backspace' || 'Delete') { // If the key is Backspace (to clear the input)
