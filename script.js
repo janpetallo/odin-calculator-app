@@ -104,6 +104,14 @@ function updateDisplay(e) {
         } else {
             displayValue = displayValue.slice(0, -1);
         }
+    } else if (e.target.classList.contains('negate')) {
+        if (displayValue[0] === '-') {
+            displayValue = displayValue.slice(1);
+        }  else if (displayValue === '0') {
+            displayValue = '0';
+        } else {
+            displayValue = '-' + displayValue;
+        }
     }
     document.querySelector('.display-screen').value = displayValue;
 }
