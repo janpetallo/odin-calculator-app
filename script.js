@@ -24,6 +24,9 @@ function operate(operator, firstNumber, secondNumber){
     } else if(operator === '*') {
         return multiply(firstNumber, secondNumber);
     } else if (operator === '/') {
+        if(secondNumber === 0){
+            return 'i still love you';
+        }
         return divide(firstNumber, secondNumber);
     }
 }
@@ -76,9 +79,14 @@ function updateDisplay(e) {
             displayValue = String(firstNumber);
         } else if (firstNumber !== '' && secondNumber === '' && operator !== '') {
             displayValue = 'Error';
-        } else if (firstNumber !== '' && secondNumber !== '') {
+        } 
+        else if (firstNumber !== '' && secondNumber !== '') {
             firstNumber = operate(operator, firstNumber, secondNumber);
-            displayValue = String(firstNumber);
+            if (firstNumber === 'i still love you') {
+                displayValue = 'i still love uu <3';
+            } else {
+                displayValue = String(firstNumber);
+            }
             secondNumber = '';
             operator = '';
         } 
