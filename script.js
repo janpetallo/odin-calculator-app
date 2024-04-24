@@ -47,6 +47,12 @@ function updateDisplay(e) {
             if (!displayValue.includes('.')) { 
                 displayValue += '.'; 
             }
+            if (displayValue === '0') {
+                displayValue = '0.';
+            } else if (firstNumber !== '' && secondNumber === '' && operator !== '') {
+                displayValue = '0.';
+                secondNumber = Number(displayValue);
+            }
         } else {
             if (operator !== '' && secondNumber === '') { // if operator is selected and second number is empty
                 displayValue = btnValue;
@@ -54,7 +60,7 @@ function updateDisplay(e) {
             } else if (operator !== '' && secondNumber !== '') { // if operator is selected and second number is not empty
                 displayValue += btnValue;
                 secondNumber = Number(displayValue);
-            } else if (firstNumber !== '' && secondNumber === '' && operator === '') { // when the last operation is equals
+            } else if (firstNumber !== '' && secondNumber === '' && operator === '' && !displayValue.includes('.')) { // when the last operation is equals
                 displayValue = btnValue;
                 firstNumber = '';
             } else if (displayValue === '0' ) { // if display value is 0
@@ -109,6 +115,10 @@ function updateDisplay(e) {
     } else if (e.target.classList.contains('equals')) {
 
         if (firstNumber !== '' && secondNumber === '' && operator === '') {
+            if(firstNumber !== displayValue) {
+                firstNumber = Number(displayValue);
+            }
+
             displayValue = String(firstNumber);
         } else if (firstNumber !== '' && secondNumber === '' && operator !== '') {
             displayValue = 'Error';
