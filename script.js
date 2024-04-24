@@ -184,7 +184,7 @@ window.addEventListener('keydown', function(e) {
         
     } else if (key === 'Enter') { // If the key is Enter (to calculate the result)
         equalsButton.click();
-    } else if (key === 'Backspace' || 'Delete') { // If the key is Backspace (to clear the input)
+    } else if (key === 'Backspace' || key === 'Delete') { // If the key is Backspace (to clear the input)
         delButton.click();
     } else if (key === 'Escape') { // If the key is Escape (to clear everything)
         clearButton.click();
